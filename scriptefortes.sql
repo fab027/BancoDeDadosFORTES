@@ -90,40 +90,38 @@ CREATE TABLE ContribuicoesIdeias (
     FOREIGN KEY (id_acao) REFERENCES AcoesSociais(id_acao)
 );
 
---> Área de inserção de dados (ficticios) no banco de dados para verificar funcionamento <--
+-- Inserção de Tipos de Usuario
+INSERT INTO TiposUsuario (tipo) VALUES ('admin'), ('Parceiro'), ('colaborador');
 
---> Inserção de Tipos de Usuario
-INSERT INTO TiposUsuario (tipo) VALUES ('admin'), ('participante'), ('colaborador');
-
---> Inserção de Status de Progresso
+-- Inserção de Status de Progresso
 INSERT INTO StatusProgresso (status) VALUES ('planejada'), ('em andamento'), ('concluída'), ('cancelada'), ('iniciado'), ('finalizado');
 
---> Inserção de Usuarios
+-- Inserção de Usuarios
 INSERT INTO Usuarios (nome, email, senha, tipo_usuario) 
 VALUES 
     ('João Silva', 'joao@fortes.com', 'senha123', 1),
     ('Maria Oliveira', 'maria@fortes.com', 'senha123', 2),
     ('Pedro Souza', 'pedro@fortes.com', 'senha123', 3);
 
---> Inserção de Categorias de Ações
+-- Inserção de Categorias de Ações
 INSERT INTO CategoriasAcoes (nome_categoria, descricao)
 VALUES 
     ('Educação', 'Ações voltadas para educação e capacitação de jovens e adultos.'),
     ('Meio Ambiente', 'Ações que visam a preservação do meio ambiente e sustentabilidade.');
 
---> Inserção de Ações Sociais
+-- Inserção de Ações Sociais
 INSERT INTO AcoesSociais (nome_acao, descricao, id_categoria, data_inicio, data_fim, status, id_responsavel)
 VALUES 
     ('Projeto Educacional', 'Curso de capacitação em tecnologia para jovens.', 1, '2024-01-01', '2024-12-31', 1, 1),
     ('Plante uma Árvore', 'Ação de plantio de árvores em comunidades carentes.', 2, '2024-02-01', '2024-11-30', 2, 2);
 
---> Inserção de Progresso das Ações
+-- Inserção de Progresso das Ações
 INSERT INTO ProgressoAcoes (id_acao, data_progresso, descricao, status_progresso)
 VALUES 
     (1, '2024-03-01', 'Início do curso de capacitação.', 5),
     (2, '2024-03-10', 'Plantei as primeiras árvores.', 2);
 
---> Inserção de Feedbacks
+-- Inserção de Feedbacks
 INSERT INTO Feedbacks (id_acao, id_usuario, comentario, avaliacao)
 VALUES 
     (1, 2, 'Excelente curso de capacitação, muito útil!', 5),
